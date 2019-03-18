@@ -1,0 +1,14 @@
+ driver.findElement(By.xpath("//*[@class='fl search-box date-box gtm-onwardCalendar']")).click();
+		String month = "Apr 2019";
+		String date = "28";
+		String getMonth = driver.findElement(By.xpath("//div[@class='rb-calendar']//td[@class='monthTitle']"))
+				.getText();
+
+		while (true) {
+			if (!(getMonth.equalsIgnoreCase(month))) {
+				driver.findElement(By.xpath("//div[@class='rb-calendar']/*//td[@class='next']")).click();
+				break;
+			}
+		}
+		driver.findElement(By.xpath("//div[@id='rb-calendar_onward_cal']/table/tbody//td[text()='" + month
+				+ "']/../..//td[text()='" + date + "']")).click();
